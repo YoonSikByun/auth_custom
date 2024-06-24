@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mlflow_custom"
+version = "0.0.1"
+authors = [
+  { name="PYS", email="xian@hanafn.com" },
+]
+description = "This is backend system for mlstudio."
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.entry-points."mlflow.app"]
+mlflow_custom = "mlflow_custom:create_app"
