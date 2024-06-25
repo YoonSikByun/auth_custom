@@ -17,5 +17,13 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
+dependencies = [
+  "mlflow",
+  "Flask<4",
+  "Flask-Cors"
+  # "Jinja2<4,>=2.11; platform_system != 'Windows'",
+  # "Jinja2<4,>=3.0; platform_system == 'Windows'",
+]
+
 [project.entry-points."mlflow.app"]
 mlflow_custom = "mlflow_custom:create_app"
