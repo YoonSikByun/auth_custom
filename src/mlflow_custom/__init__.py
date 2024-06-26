@@ -24,20 +24,21 @@ def create_app(app: Flask = app):
 
     CORS(org_app)
     g_mlflow_custom_logger.debug('--------------- start create_app_orinal')
-    # org_app.add_url_rule(
-    #     rule='/mlflow/start',
-    #     view_func=make_login_response,
-    #     methods=["GET"],
-    # )
-    # g_mlflow_custom_logger.debug('--------------- end create_app_orinal')
+    org_app.add_url_rule(
+        rule='/mlflow/logout',
+        view_func=make_logout_response,
+        methods=["GET"],
+    )
+    g_mlflow_custom_logger.debug('--------------- end create_app_orinal')
 
     # return app
 
     return org_app
 
-# def make_login_response() -> Response:
-    
-#     return response
+def make_logout_response() -> Response:
+    response = make_response('Logout completed.')
+    response.set_cookie(key=SESSION_ID, value='', expires=None, httponly=True)
+    return response
 
 from werkzeug.datastructures import Authorization
 from typing import Union
