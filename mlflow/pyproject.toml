@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mlflow_auth"
+version = "0.0.1"
+authors = [
+  { name="PYS", email="xian@hanafn.com" },
+]
+description = "This is backend system for mlstudio."
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+  "mlflow",
+  "Flask<4",
+  "Flask-Cors"
+  # "Jinja2<4,>=2.11; platform_system != 'Windows'",
+  # "Jinja2<4,>=3.0; platform_system == 'Windows'",
+]
+
+[project.entry-points."mlflow.app"]
+mlflow_auth = "mlflow_auth:create_app"
