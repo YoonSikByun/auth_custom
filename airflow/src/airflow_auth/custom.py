@@ -19,10 +19,20 @@ _log = LoggingMixin().log
 CLIENT_AUTH: tuple[str, str] | Any | None = None
 T = TypeVar("T", bound=Callable)
 
+import logging
+logging.basicConfig(filename='/opt/mlstudio/output/airflow.log',
+                    filemode='a',
+                    format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+                    datefmt='%H:%M:%S',
+                    level=logging.DEBUG)
+
+g_mlflow_custom_logger = logging.getLogger('airflw-custom')
+
+
 def init_app(_):
     """Initializes authentication backend"""
-    print('###################################### init ######################################')
-    _log.debug('##############################################################')
+    g_mlflow_custom_logger.debug('###################################### init ######################################')
+    g_mlflow_custom_logger.debug('##############################################################')
 
 def _authenticate_password(username, password):
     with create_session() as session:
