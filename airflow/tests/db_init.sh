@@ -1,3 +1,3 @@
-# export AIRFLOW_HOME=~/airflow
+export AIRFLOW_HOME=/opt/mlstudio/source/github/auth_custom/auth_custom/airflow/tests/airflow
 airflow db init
 airflow users create  --username admin  --firstname Peter  --lastname Parker  --role Admin  --email spiderman@superhero.org

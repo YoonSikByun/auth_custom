@@ -16,8 +16,6 @@ class TestAppBuilderBaseView(AppBuilderBaseView):
     def test(self):
         return self.render_template("env.html", content="DEV")
 
-
-
 v_appbuilder_view = TestAppBuilderBaseView()
 v_appbuilder_package = {
     "name": "Test", # this is the name of the link displayed
